@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.baselet.element.old.allinone.SequenceDiagram</type>
+    <coordinates>
+      <x>70</x>
+      <y>70</y>
+      <w>510</w>
+      <h>440</h>
+    </coordinates>
+    <panel_attributes>title: scenario wait-multi
+_main:Thread~main_|_Hello:SimC~hello_|_World:SimC~world_
+iframe{:t=0
+main-&gt;&gt;world:main,world:sched(t=10,waitHello)
+main-&gt;&gt;hello:main,hello:sched(t=20,releaseWorld)
+iframe}
+id2-/&gt;id1:async Msg.
+id3-&gt;&gt;&gt;id1:id1,id3
+id1.&gt;id3:id1,id3:async return Msg
+id1-&gt;id1:id1:self
+iframe{:interaction frame
+id2-&gt;id3:id1,id3:async Msg.
+iframe}
+layer=0</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

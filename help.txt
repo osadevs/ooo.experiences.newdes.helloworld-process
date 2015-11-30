@@ -1,0 +1,24 @@
+
+===========  help.txt  ===============
+This file describes the available profiles and their
+associated default execution.
+
+Package: fio.experiences.newdes.helloworld.process
+
+Request maven to show this file using the 'help' profile:
+$ mvn -Phelp
+
+Other available profiles:
+- run 
+  run the helloworld-wait experience
+  $ mvn -Prun
+
+- wait-many (+ run profile)
+  runs the helloworld-waitmany experience
+  $ mvn -Prun,multiple
+  
+- verbose (+ run or +run/multiple)
+  set high level of verbosity (according to slf4j
+  config settings)
+  
+==============  EOF  ================= 

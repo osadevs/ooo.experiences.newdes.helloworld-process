@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--> 
+<!--                Open Simulation Architecture (OSA)                  -->
+<!--                                                                    -->
+<!--      This software is distributed under the terms of the           -->
+<!--           CECILL-C FREE SOFTWARE LICENSE AGREEMENT                 -->
+<!--  (see http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html) -->
+<!--                                                                    -->
+<!--  Copyright © 2006-2015 Université Nice Sophia Antipolis            -->
+<!--  Contact author: Olivier Dalle (olivier.dalle@unice.fr)            -->
+<!--                                                                    -->
+<!--  Parts of this software development were supported and hosted by   -->
+<!--  INRIA from 2006 to 2015, in the context of the common research    -->
+<!--  teams of INRIA and I3S, UMR CNRS 7172 (MASCOTTE, COATI, OASIS and -->
+<!--  SCALE).                                                           -->
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!DOCTYPE definition PUBLIC "-//objectweb.org//DTD Fractal ADL 2.0//EN" 
+	"classpath://org/osadev/osa/engines/newdes/adl/stdsim.dtd">
+<definition
+	name="org.osadev.osa.experiments.newdes.helloworld.process.scenario-hello:wait-one">
+
+	<component name="World">
+		<exoevents signature="world">
+			<!-- waitHello uses the bounded wait primitive with a timeout set to
+				10 seconds. This first event will wait for a synchronization
+				to occur between t=10 and t=20 -->
+			<exoevent time="10" method="waitHello" param="print" />
+			<!-- waitHello uses the bounded wait primitive with a timeout set to
+				10 seconds. This second event will wait for a synchronization
+				to occur between t=21 and t=31 -->
+			<exoevent time="21"	method="waitHello" param="print" />
+		</exoevents>
+	</component>
+
+	<component name="Hello">
+		<exoevents signature="hello">
+			<!-- releaseWorld uses first a fixed delay wait of 10s and then release
+				one bloques process o condition "print". Therefore, when it wakes up at
+				t=30, there is only one world process still waiting on condition print. -->
+			<exoevent time="20"	method="releaseWorld" param="Hello world!#1" />
+			<!-- At t=32, no more process is blocked -->
+			<exoevent time="22"	method="releaseWorld" param="Hello world!#2" />
+		</exoevents>
+	</component>
+
+</definition>
