@@ -19,7 +19,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<artifactId>osa-expe-newdes</artifactId>
-		<groupId>org.osadev.osa.experiences.newdes</groupId>
+		<groupId>org.osadev.osa.experiments.newdes</groupId>
 		<version>0.8.1-SNAPSHOT</version>
 		<relativePath>../ooo.experiments.newdes/</relativePath>
 	</parent>
